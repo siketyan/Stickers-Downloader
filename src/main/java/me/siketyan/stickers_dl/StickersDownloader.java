@@ -94,7 +94,7 @@ public class StickersDownloader {
             System.out.print("Downloading Sticker: " + s.getId());
 
             System.out.print("   Image...");
-            File image = new File(imagesPath.getPath() + "\\" + s.getId() + ".png");
+            File image = new File(imagesPath.getPath() + "/" + s.getId() + ".png");
             if (image.exists()) {
                 System.out.print("Skipped");
             } else {
@@ -113,7 +113,7 @@ public class StickersDownloader {
 
             if (s.getAudioUrl() != null) {
                 System.out.print("   Audio...");
-                File audio = new File(audioPath.getPath() + "\\" + s.getId() + ".m4a");
+                File audio = new File(audioPath.getPath() + "/" + s.getId() + ".m4a");
                 if (audio.exists()) {
                     System.out.print("Skipped");
                 } else {
