@@ -52,7 +52,8 @@ public class StickersDownloader {
             return;
         }
 
-        System.out.println("\nStickers' information:");
+        System.out.println();
+        System.out.println("Stickers' information:");
         System.out.println("Title: " + res.getTitle());
         System.out.println("Author: " + res.getAuthor());
         System.out.println("Description: " + res.getDescription());
@@ -91,10 +92,12 @@ public class StickersDownloader {
         }
 
         for (Sticker s : res.getStickers()) {
-            System.out.print("Downloading Sticker: " + s.getId());
+            String stickerId = Long.toString(s.getId());
+
+            System.out.append("Downloading Sticker: ").print(stickerId);
 
             System.out.print("   Image...");
-            File image = new File(imagesPath.getPath() + File.separator + s.getId() + ".png");
+            File image = new File(imagesPath, stickerId.concat(".png"));
             if (image.exists()) {
                 System.out.print("Skipped");
             } else {
@@ -113,7 +116,7 @@ public class StickersDownloader {
 
             if (s.getAudioUrl() != null) {
                 System.out.print("   Audio...");
-                File audio = new File(audioPath.getPath() + File.separator + s.getId() + ".m4a");
+                File audio = new File(audioPath, stickerId.concat(".m4a"));
                 if (audio.exists()) {
                     System.out.print("Skipped");
                 } else {
