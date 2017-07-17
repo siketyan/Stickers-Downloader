@@ -21,7 +21,7 @@ public class StickersDownloader {
 
     public static void main(String[] args) {
         if (args.length < 1) {
-            System.out.println("Usage: java -jar ~.jar [ Sticker Set ID | Store URL ]");
+            System.out.println("Usage: java -jar " + new File(System.getProperty("java.class.path")).getAbsoluteFile().getName() + " [ Sticker Set ID | Store URL ]");
             return;
         }
 
@@ -57,7 +57,7 @@ public class StickersDownloader {
         System.out.println("Title: " + res.getTitle());
         System.out.println("Author: " + res.getAuthor());
         System.out.println("Description: " + res.getDescription());
-        System.out.println("Price: ￥" + res.getPrice());
+        System.out.println("Price: \\" + res.getPrice());
         System.out.println("Stickers Count: " + res.getStickers().length);
 
         if (res.hasSound()) System.out.print("[Sound] ");
